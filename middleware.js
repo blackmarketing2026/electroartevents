@@ -2,7 +2,7 @@ export const config = {
   matcher: '/((?!api/|images/|css/|favicon.ico).*)',
 };
 
-const PASSWORT = 'Sonne 2026';
+const PASSWORT = 'Sonne26';
 const COOKIE_NAME = 'ea_preview';
 const COOKIE_WERT = 'freigegeben';
 
