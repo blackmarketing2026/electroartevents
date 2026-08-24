@@ -1,0 +1,8 @@
+{
+  "name": "electroart-events",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "nodemailer": "^9.0.5"
+  }
+}
