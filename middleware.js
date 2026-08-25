@@ -1,5 +1,5 @@
 export const config = {
-  matcher: '/((?!api/|images/|css/|favicon.ico).*)',
+  matcher: '/((?!api/|images/|css/|favicon.ico|robots.txt|sitemap.xml).*)',
 };
 
 const PASSWORT = 'Sonne26';
