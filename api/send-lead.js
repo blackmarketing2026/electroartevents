@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
   const { formular, ...felder } = req.body || {};
 
   if (Object.keys(felder).length === 0) {
-    return res.status(400).json({ error: 'Keine Formulardaten übermittelt' });
+    return res.status(400).json({ error: 'Keine Formulardaten uebermittelt' });
   }
 
   const transporter = nodemailer.createTransport({
@@ -37,7 +37,7 @@ module.exports = async (req, res) => {
     await transporter.sendMail({
       from: process.env.smtp_user,
       to: process.env.smtp_empfaenger,
-      subject: `Neue Anfrage${formular ? ` – ${formular}` : ''}`,
+      subject: `Neue Anfrage${formular ? ` - ${formular}` : ''}`,
       text,
     });
     return res.status(200).json({ success: true });
