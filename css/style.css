@@ -762,6 +762,65 @@ address {
   font-style: normal;
 }
 
+.overview-page {
+  width: min(1180px, calc(100% - 10vw));
+  margin: 0 auto;
+  padding: 86px 0 96px;
+}
+
+.overview-hero {
+  max-width: 760px;
+  margin-bottom: 44px;
+}
+
+.overview-hero p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 1.08rem;
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.overview-card {
+  min-height: 280px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, rgba(232, 197, 139, 0.11), rgba(255, 250, 244, 0.04)),
+    var(--night-soft);
+  box-shadow: var(--shadow);
+}
+
+.overview-card h2 {
+  margin-bottom: 26px;
+  font-size: clamp(1.72rem, 3vw, 2.24rem);
+}
+
+.overview-card ul {
+  display: grid;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.overview-card a {
+  display: inline-flex;
+  color: var(--cyan-soft);
+  font-weight: 900;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.overview-card a:hover,
+.overview-card a:focus-visible {
+  color: var(--champagne);
+  transform: translateX(4px);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(26px);
@@ -835,6 +894,7 @@ address {
   .intro-grid,
   .experience,
   .process-grid,
+  .overview-grid,
   .contact {
     grid-template-columns: 1fr;
   }
@@ -909,6 +969,11 @@ address {
 
   .section-pad {
     padding: 70px 20px;
+  }
+
+  .overview-page {
+    width: calc(100% - 40px);
+    padding: 64px 0 72px;
   }
 
   .intro-grid {
