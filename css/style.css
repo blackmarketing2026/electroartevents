@@ -1446,10 +1446,9 @@ address {
   --hp-line-dark: rgba(247, 240, 226, 0.16);
   --hp-cream-text: #f7f0e2;
   --hp-cream-muted: rgba(247, 240, 226, 0.72);
-  --hp-accent: #c1401d;
-  --hp-accent-soft: #e2653a;
-  --hp-accent-strong: #93300f;
-  --hp-gold: #c69a52;
+  --hp-accent: #1483ba;
+  --hp-accent-soft: #4fc1f2;
+  --hp-accent-strong: #0b5573;
   --hp-shadow: 0 26px 60px rgba(28, 18, 10, 0.22);
   background: var(--hp-bg);
   color: var(--hp-ink);
@@ -1491,7 +1490,7 @@ address {
   border-color: transparent;
   background: var(--hp-accent);
   color: var(--hp-cream-text);
-  box-shadow: 0 16px 34px rgba(193, 64, 29, 0.28);
+  box-shadow: 0 16px 34px rgba(20, 131, 186, 0.28);
 }
 
 .home-page h1,
@@ -1524,7 +1523,7 @@ address {
 
 .home-page .dj-profile .eyebrow,
 .home-page .home-contact .eyebrow {
-  color: var(--hp-gold);
+  color: var(--hp-accent-soft);
 }
 
 .home-page .section-heading {
@@ -1540,7 +1539,7 @@ address {
 .home-page .button.primary {
   background: var(--hp-accent);
   color: var(--hp-cream-text);
-  box-shadow: 0 20px 46px rgba(193, 64, 29, 0.32);
+  box-shadow: 0 20px 46px rgba(20, 131, 186, 0.32);
 }
 
 .home-page .button.secondary {
@@ -1642,7 +1641,7 @@ address {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(200deg, rgba(193, 64, 29, 0.22), transparent 46%),
+    linear-gradient(200deg, rgba(20, 131, 186, 0.22), transparent 46%),
     linear-gradient(0deg, rgba(28, 19, 14, 0.5), transparent 44%);
   mix-blend-mode: multiply;
 }
@@ -1736,7 +1735,7 @@ address {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(200deg, rgba(193, 64, 29, 0.2), transparent 50%),
+    linear-gradient(200deg, rgba(20, 131, 186, 0.2), transparent 50%),
     linear-gradient(0deg, rgba(28, 19, 14, 0.34), transparent 46%);
   mix-blend-mode: multiply;
 }
@@ -1761,7 +1760,7 @@ address {
 
 .event-card .card-index {
   margin-bottom: 32px;
-  border-color: rgba(193, 64, 29, 0.36);
+  border-color: rgba(20, 131, 186, 0.36);
   color: var(--hp-accent-strong);
 }
 
@@ -1796,7 +1795,7 @@ address {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(200deg, rgba(193, 64, 29, 0.18), transparent 50%),
+    linear-gradient(200deg, rgba(20, 131, 186, 0.18), transparent 50%),
     linear-gradient(0deg, rgba(28, 19, 14, 0.4), transparent 40%);
   mix-blend-mode: multiply;
 }
@@ -1856,7 +1855,7 @@ address {
 }
 
 .home-process .process-grid span {
-  border-color: rgba(193, 64, 29, 0.36);
+  border-color: rgba(20, 131, 186, 0.36);
   color: var(--hp-accent-strong);
 }
 
@@ -1885,7 +1884,7 @@ address {
 }
 
 .home-contact .contact-links a {
-  color: var(--hp-gold);
+  color: var(--hp-accent-soft);
 }
 
 .multi-step-form {
@@ -1912,13 +1911,13 @@ address {
 
 .form-progress span.is-active {
   border-color: var(--hp-accent-soft);
-  background: rgba(193, 64, 29, 0.24);
+  background: rgba(20, 131, 186, 0.24);
   color: var(--hp-cream-text);
 }
 
 .form-progress span.is-complete {
-  border-color: var(--hp-gold);
-  color: var(--hp-gold);
+  border-color: var(--hp-accent-soft);
+  color: var(--hp-accent-soft);
 }
 
 .form-step {
@@ -1986,12 +1985,12 @@ address {
 
 .event-choice input:checked + span {
   border-color: var(--hp-accent-soft);
-  background: linear-gradient(135deg, rgba(193, 64, 29, 0.36), rgba(198, 154, 82, 0.22));
+  background: linear-gradient(135deg, rgba(20, 131, 186, 0.36), rgba(79, 193, 242, 0.22));
   color: var(--hp-cream-text);
 }
 
 .event-choice input:focus-visible + span {
-  box-shadow: 0 0 0 4px rgba(193, 64, 29, 0.22);
+  box-shadow: 0 0 0 4px rgba(20, 131, 186, 0.22);
 }
 
 .form-actions {
@@ -2029,7 +2028,7 @@ address {
 .home-contact .contact-form select:focus,
 .home-contact .contact-form textarea:focus {
   border-color: var(--hp-accent-soft);
-  box-shadow: 0 0 0 4px rgba(193, 64, 29, 0.22);
+  box-shadow: 0 0 0 4px rgba(20, 131, 186, 0.22);
   background: rgba(28, 19, 14, 0.82);
 }
 
@@ -2044,7 +2043,7 @@ address {
 }
 
 .home-contact .form-note a {
-  color: var(--hp-gold);
+  color: var(--hp-accent-soft);
 }
 
 .home-page .site-footer {
@@ -2053,7 +2052,7 @@ address {
 
 .home-page .site-footer a:hover,
 .home-page .site-footer a:focus-visible {
-  color: var(--hp-gold);
+  color: var(--hp-accent-soft);
 }
 
 .mobile-contact-bar {
