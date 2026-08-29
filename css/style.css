@@ -684,6 +684,12 @@ h3 {
 .contact-form select {
   min-height: 50px;
   padding: 0 14px;
+  color-scheme: dark;
+}
+
+.contact-form select option {
+  background: var(--night-soft);
+  color: var(--text);
 }
 
 .contact-form textarea {
@@ -2008,6 +2014,11 @@ address {
 .home-contact .contact-form textarea {
   border-color: var(--hp-line-soft);
   background: rgba(255, 255, 255, 0.03);
+  color: var(--hp-text);
+}
+
+.home-contact .contact-form select option {
+  background: var(--hp-bg-panel);
   color: var(--hp-text);
 }
 
