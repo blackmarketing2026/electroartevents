@@ -2461,6 +2461,16 @@ address {
   color: #151014;
 }
 
+.cookie-btn-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cookie-gear {
+  flex: none;
+}
+
 .cookie-modal {
   position: fixed;
   inset: 0;
@@ -2469,6 +2479,10 @@ address {
   place-items: center;
   padding: 24px;
   background: rgba(5, 8, 13, 0.72);
+}
+
+.cookie-modal[hidden] {
+  display: none;
 }
 
 .cookie-modal-inner {
