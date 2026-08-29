@@ -6,6 +6,10 @@
   <meta name="description" content="DJ ElectroArt aus Detmold: Jens Naumann begleitet Hochzeiten, Geburtstage, Firmenfeiern, Weihnachtsfeiern und Events mit Musik, Licht, Sound und sicherem Timing.">
   <link rel="canonical" href="https://www.electroartevents.de/">
   <title>DJ ElectroArt | DJ f&uuml;r Hochzeit, Geburtstag &amp; Firmenfeier</title>
+  <link rel="icon" href="images/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
@@ -308,9 +312,65 @@
       <a href="hochzeits-dj">Hochzeits-DJ</a>
       <a href="seitenuebersicht.html">Seiten&uuml;bersicht</a>
       <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <button type="button" class="cookie-footer-link" onclick="window.cookieConsent.openSettings()">Cookie-Einstellungen</button>
       <a href="mailto:info@electroart-events.de">Kontakt</a>
     </nav>
   </footer>
+
+  <div id="cookie-banner" class="cookie-banner" hidden>
+    <div class="cookie-banner-inner">
+      <p>
+        Wir nutzen Cookies. Notwendige Cookies sind f&uuml;r den Betrieb der Seite erforderlich,
+        Statistik-Cookies (Google Tag Manager) nur mit Ihrer Einwilligung. Mehr dazu in unserer
+        <a href="datenschutz.html">Datenschutzerkl&auml;rung</a>.
+      </p>
+      <div class="cookie-banner-actions">
+        <button type="button" id="cookie-settings-open" class="cookie-btn">Einstellungen</button>
+        <button type="button" id="cookie-reject-all" class="cookie-btn">Nur notwendige</button>
+        <button type="button" id="cookie-accept-all" class="cookie-btn cookie-btn-primary">Alle akzeptieren</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cookie-modal" class="cookie-modal" hidden aria-modal="true" role="dialog" aria-labelledby="cookie-modal-title">
+    <div class="cookie-modal-inner">
+      <h2 id="cookie-modal-title">Cookie-Einstellungen</h2>
+
+      <label class="cookie-category">
+        <input type="checkbox" checked disabled>
+        <span><strong>Notwendig</strong> &ndash; immer aktiv, f&uuml;r den Betrieb der Website erforderlich.</span>
+      </label>
+
+      <label class="cookie-category">
+        <input type="checkbox" id="cookie-cat-statistik">
+        <span><strong>Statistik</strong> &ndash; Google Tag Manager, hilft uns die Nutzung der Website zu verstehen.</span>
+      </label>
+
+      <label class="cookie-category">
+        <input type="checkbox" id="cookie-cat-marketing">
+        <span><strong>Marketing</strong> &ndash; f&uuml;r personalisierte Werbung und Remarketing.</span>
+      </label>
+
+      <div class="cookie-banner-actions">
+        <button type="button" id="cookie-modal-save" class="cookie-btn cookie-btn-primary">Auswahl speichern</button>
+        <button type="button" id="cookie-modal-close" class="cookie-btn">Abbrechen</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/plain" data-consent-category="statistik">
+    window.dataLayer = window.dataLayer || [];
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l !== 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-TJC9GX4D');
+  </script>
+  <script src="js/cookie-consent.js"></script>
 
   <script>
     const reveals = document.querySelectorAll('.reveal');
