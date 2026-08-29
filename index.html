@@ -215,83 +215,49 @@
         </div>
       </div>
 
-      <form class="contact-form multi-step-form reveal" action="/api/send-lead" method="post">
+      <form class="contact-form reveal" action="/api/send-lead" method="post">
         <input type="hidden" name="formular" value="Startseiten-Anfrage">
 
-        <div class="form-progress" aria-label="Formularschritte">
-          <span class="is-active" data-step-dot="0">Event</span>
-          <span data-step-dot="1">Kontakt</span>
-          <span data-step-dot="2">Details</span>
+        <div class="form-grid">
+          <label>
+            Name
+            <input name="name" type="text" autocomplete="name" required>
+          </label>
+          <label>
+            Telefonnummer
+            <input name="telefon" type="tel" autocomplete="tel" required>
+          </label>
+          <label class="wide">
+            E-Mail-Adresse
+            <input name="email" type="email" autocomplete="email" required>
+          </label>
+          <label>
+            Event
+            <select name="eventart" required>
+              <option value="" disabled selected>Bitte w&auml;hlen</option>
+              <option value="Hochzeit">Hochzeit</option>
+              <option value="Geburtstagsfeier">Geburtstag</option>
+              <option value="Firmenfeier">Firmenfeier</option>
+              <option value="Weihnachtsfeier">Weihnachtsfeier</option>
+              <option value="Sonstiges">Sonstiges</option>
+            </select>
+          </label>
+          <label>
+            Anzahl der Teilnehmer
+            <input name="teilnehmer" type="number" min="1" inputmode="numeric" placeholder="z. B. 80" required>
+          </label>
+          <label class="wide">
+            Wo ist die Location? <span class="label-optional">(optional)</span>
+            <input name="location" type="text" autocomplete="organization" placeholder="Name oder Ort der Location">
+          </label>
+          <label class="wide">
+            Nachricht
+            <textarea name="nachricht" rows="5" placeholder="Musikrichtung, Ablauf, Startzeit oder besondere W&uuml;nsche"></textarea>
+          </label>
         </div>
 
-        <fieldset class="form-step is-active" data-step="0">
-          <legend>Welches Event plant ihr?</legend>
-          <div class="event-choice" role="radiogroup" aria-label="Eventart">
-            <label>
-              <input type="radio" name="eventart" value="Hochzeit" required checked>
-              <span>Hochzeit</span>
-            </label>
-            <label>
-              <input type="radio" name="eventart" value="Geburtstagsfeier">
-              <span>Geburtstag</span>
-            </label>
-            <label>
-              <input type="radio" name="eventart" value="Firmenfeier">
-              <span>Firmenfeier</span>
-            </label>
-          </div>
-          <div class="form-grid">
-            <label>
-              Anzahl der Teilnehmer
-              <input name="teilnehmer" type="number" min="1" inputmode="numeric" placeholder="z. B. 80" required>
-            </label>
-            <label>
-              Wo ist die Location?
-              <input name="location" type="text" autocomplete="organization" placeholder="Name oder Ort der Location" required>
-            </label>
-          </div>
-        </fieldset>
-
-        <fieldset class="form-step" data-step="1">
-          <legend>Wie erreichen wir euch?</legend>
-          <div class="form-grid">
-            <label>
-              Name
-              <input name="name" type="text" autocomplete="name" required>
-            </label>
-            <label>
-              Telefonnummer
-              <input name="telefon" type="tel" autocomplete="tel" required>
-            </label>
-            <label class="wide">
-              E-Mail
-              <input name="email" type="email" autocomplete="email" required>
-            </label>
-          </div>
-        </fieldset>
-
-        <fieldset class="form-step" data-step="2">
-          <legend>Was ist sonst wichtig?</legend>
-          <div class="form-grid">
-            <label>
-              Wunschdatum
-              <input name="datum" type="date">
-            </label>
-            <label>
-              Ort / Stadt
-              <input name="ort" type="text" autocomplete="address-level2" placeholder="z. B. Detmold">
-            </label>
-            <label class="wide">
-              Nachricht
-              <textarea name="nachricht" rows="5" placeholder="Musikrichtung, Ablauf, Startzeit oder besondere W&uuml;nsche"></textarea>
-            </label>
-          </div>
-        </fieldset>
-
         <div class="form-actions">
-          <button class="button secondary form-prev" type="button">Zur&uuml;ck</button>
-          <button class="button primary form-next" type="button">Weiter</button>
-          <button class="button primary form-submit" type="submit">Anfrage senden</button>
+          <button class="button primary" type="submit">Anfrage senden</button>
         </div>
         <p class="form-note" role="status">Die Anfrage ist unverbindlich. Jens meldet sich pers&ouml;nlich zur&uuml;ck.</p>
       </form>
@@ -399,57 +365,16 @@
       }
     });
 
-    const form = document.querySelector('.multi-step-form');
+    const form = document.querySelector('.home-contact .contact-form');
 
     if (form) {
-      const steps = Array.from(form.querySelectorAll('.form-step'));
-      const dots = Array.from(form.querySelectorAll('[data-step-dot]'));
-      const prevButton = form.querySelector('.form-prev');
-      const nextButton = form.querySelector('.form-next');
-      const submitButton = form.querySelector('.form-submit');
+      const submitButton = form.querySelector('button[type="submit"]');
       const note = form.querySelector('.form-note');
-      let activeStep = 0;
-
-      const setStep = (stepIndex) => {
-        activeStep = stepIndex;
-        steps.forEach((step, index) => {
-          const isActive = index === activeStep;
-          step.classList.toggle('is-active', isActive);
-          step.toggleAttribute('hidden', !isActive);
-        });
-        dots.forEach((dot, index) => {
-          dot.classList.toggle('is-active', index === activeStep);
-          dot.classList.toggle('is-complete', index < activeStep);
-        });
-        prevButton.style.display = activeStep === 0 ? 'none' : 'inline-flex';
-        nextButton.style.display = activeStep === steps.length - 1 ? 'none' : 'inline-flex';
-        submitButton.style.display = activeStep === steps.length - 1 ? 'inline-flex' : 'none';
-        note.textContent = activeStep === steps.length - 1
-          ? 'Optional k\u00f6nnt ihr noch Datum, Ort und W\u00fcnsche erg\u00e4nzen.'
-          : 'Die Anfrage ist unverbindlich. Jens meldet sich pers\u00f6nlich zur\u00fcck.';
-      };
-
-      const validateActiveStep = () => {
-        const fields = Array.from(steps[activeStep].querySelectorAll('input, textarea, select'));
-        return fields.every((field) => field.reportValidity());
-      };
-
-      prevButton.addEventListener('click', () => {
-        setStep(Math.max(0, activeStep - 1));
-      });
-
-      nextButton.addEventListener('click', () => {
-        if (validateActiveStep()) {
-          setStep(Math.min(steps.length - 1, activeStep + 1));
-        }
-      });
 
       form.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         if (!form.checkValidity()) {
-          const invalidStep = steps.findIndex((step) => step.querySelector(':invalid'));
-          if (invalidStep >= 0) setStep(invalidStep);
           form.reportValidity();
           return;
         }
@@ -469,7 +394,6 @@
           if (!response.ok) throw new Error('request failed');
 
           form.reset();
-          setStep(0);
           note.textContent = 'Danke, die Anfrage wurde gesendet. Jens meldet sich pers\u00f6nlich zur\u00fcck.';
         } catch (error) {
           note.innerHTML = 'Das Formular konnte gerade nicht senden. Bitte nutzen Sie <a href="mailto:info@electroart-events.de">info@electroart-events.de</a> oder 0151 58778666.';
@@ -478,8 +402,6 @@
           submitButton.textContent = 'Anfrage senden';
         }
       });
-
-      setStep(0);
     }
   </script>
 </body>
