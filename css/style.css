@@ -88,6 +88,8 @@ textarea {
 }
 
 .brand img {
+  width: auto;
+  max-height: 52px;
   filter: drop-shadow(0 0 16px rgba(24, 200, 244, 0.34));
 }
 
@@ -737,7 +739,8 @@ h3 {
 }
 
 .site-footer img {
-  width: 118px;
+  width: auto;
+  max-height: 44px;
 }
 
 .site-footer p {
