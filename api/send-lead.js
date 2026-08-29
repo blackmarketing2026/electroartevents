@@ -23,7 +23,13 @@ module.exports = async (req, res) => {
 
   const fehlendeEnv = Object.keys(SMTP_ENV_ALIASES).filter((key) => !smtpEnv(key));
   if (fehlendeEnv.length > 0) {
-    return res.status(500).json({ error: `Fehlende SMTP-Konfiguration: ${fehlendeEnv.join(', ')}` });
+    // Nur Variablennamen (keine Werte) zur Diagnose ausgeben, falls die Konfiguration
+    // im Runtime-Environment unter einem unerwarteten Namen ankommt.
+    const gefundeneSmtpKeys = Object.keys(process.env).filter((key) => /smtp|passwort/i.test(key));
+    return res.status(500).json({
+      error: `Fehlende SMTP-Konfiguration: ${fehlendeEnv.join(', ')}`,
+      debug_gefundene_env_keys: gefundeneSmtpKeys,
+    });
   }
 
   const { formular, ...felder } = req.body || {};
