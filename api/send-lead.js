@@ -1,6 +1,19 @@
 const nodemailer = require('nodemailer');
 
-const PFLICHT_ENV = ['smtp_server', 'smtp_user', 'smtp_passwort', 'smtp_empfaenger'];
+// smtp_passwort wurde im Vercel-Projekt einmal versehentlich als "stmp_passwort"
+// angelegt (vertauschte Buchstaben) - beide Schreibweisen werden akzeptiert, damit
+// der Versand nicht an einem Tippfehler in der Vercel-Konfiguration scheitert.
+const SMTP_ENV_ALIASES = {
+  smtp_server: ['smtp_server'],
+  smtp_user: ['smtp_user'],
+  smtp_passwort: ['smtp_passwort', 'stmp_passwort'],
+  smtp_empfaenger: ['smtp_empfaenger'],
+};
+
+function smtpEnv(name) {
+  const aliases = SMTP_ENV_ALIASES[name];
+  return aliases.map((alias) => process.env[alias]).find(Boolean);
+}
 
 module.exports = async (req, res) => {
   if (req.method !== 'POST') {
@@ -8,7 +21,7 @@ module.exports = async (req, res) => {
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
-  const fehlendeEnv = PFLICHT_ENV.filter((key) => !process.env[key]);
+  const fehlendeEnv = Object.keys(SMTP_ENV_ALIASES).filter((key) => !smtpEnv(key));
   if (fehlendeEnv.length > 0) {
     return res.status(500).json({ error: `Fehlende SMTP-Konfiguration: ${fehlendeEnv.join(', ')}` });
   }
@@ -20,12 +33,12 @@ module.exports = async (req, res) => {
   }
 
   const transporter = nodemailer.createTransport({
-    host: process.env.smtp_server,
+    host: smtpEnv('smtp_server'),
     port: 465,
     secure: true,
     auth: {
-      user: process.env.smtp_user,
-      pass: process.env.smtp_passwort,
+      user: smtpEnv('smtp_user'),
+      pass: smtpEnv('smtp_passwort'),
     },
   });
 
@@ -35,8 +48,8 @@ module.exports = async (req, res) => {
 
   try {
     await transporter.sendMail({
-      from: process.env.smtp_user,
-      to: process.env.smtp_empfaenger,
+      from: smtpEnv('smtp_user'),
+      to: smtpEnv('smtp_empfaenger'),
       subject: `Neue Anfrage${formular ? ` - ${formular}` : ''}`,
       text,
     });
