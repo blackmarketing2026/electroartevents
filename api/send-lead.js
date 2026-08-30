@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const { leadEmailHtml } = require('./_email-template');
 
 // smtp_passwort wurde im Vercel-Projekt einmal versehentlich als "stmp_passwort"
 // angelegt (vertauschte Buchstaben) - beide Schreibweisen werden akzeptiert, damit
@@ -52,6 +53,7 @@ module.exports = async (req, res) => {
       to: smtpEnv('smtp_empfaenger'),
       subject: `Neue Anfrage${formular ? ` - ${formular}` : ''}`,
       text,
+      html: leadEmailHtml({ formular, felder }),
     });
     return res.status(200).json({ success: true });
   } catch (error) {
