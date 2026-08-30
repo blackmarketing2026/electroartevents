@@ -23,16 +23,7 @@ module.exports = async (req, res) => {
 
   const fehlendeEnv = Object.keys(SMTP_ENV_ALIASES).filter((key) => !smtpEnv(key));
   if (fehlendeEnv.length > 0) {
-    // Nur Variablennamen (keine Werte) zur Diagnose ausgeben, falls die Konfiguration
-    // im Runtime-Environment unter einem unerwarteten Namen ankommt.
-    const gefundeneSmtpKeys = Object.keys(process.env).filter((key) => /smtp|passwort/i.test(key));
-    return res.status(500).json({
-      error: `Fehlende SMTP-Konfiguration: ${fehlendeEnv.join(', ')}`,
-      debug_gefundene_env_keys: gefundeneSmtpKeys,
-      debug_total_env_keys: Object.keys(process.env).length,
-      debug_vercel_env: process.env.VERCEL_ENV || null,
-      debug_vercel_url: process.env.VERCEL_URL || null,
-    });
+    return res.status(500).json({ error: `Fehlende SMTP-Konfiguration: ${fehlendeEnv.join(', ')}` });
   }
 
   const { formular, ...felder } = req.body || {};
