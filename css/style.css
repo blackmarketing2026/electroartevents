@@ -425,20 +425,6 @@ h3 {
   color: var(--dark-muted);
 }
 
-.text-link {
-  display: inline-flex;
-  margin-top: 8px;
-  color: #0b748c;
-  font-weight: 900;
-  transition: color 180ms ease, transform 180ms ease;
-}
-
-.text-link:hover,
-.text-link:focus-visible {
-  color: #8f7047;
-  transform: translateX(4px);
-}
-
 .image-stage {
   position: relative;
   min-height: 620px;
@@ -1583,15 +1569,6 @@ address {
   background: rgba(0, 123, 255, 0.08);
   color: var(--hp-text);
   backdrop-filter: none;
-}
-
-.home-page .text-link {
-  color: var(--hp-accent);
-}
-
-.home-page .text-link:hover,
-.home-page .text-link:focus-visible {
-  color: var(--hp-text);
 }
 
 /* Hero */
