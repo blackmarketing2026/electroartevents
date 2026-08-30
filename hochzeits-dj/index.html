@@ -326,6 +326,7 @@
     })(window, document, 'script', 'dataLayer', 'GTM-TJC9GX4D');
   </script>
   <script src="../js/cookie-consent.js"></script>
+  <script src="../js/analytics-events.js"></script>
 
   <script>
     const reveals = document.querySelectorAll('.reveal');
@@ -370,6 +371,7 @@
 
           form.reset();
           note.textContent = 'Danke, die Anfrage wurde gesendet. Jens meldet sich pers\u00f6nlich zur\u00fcck.';
+          if (window.trackLead) window.trackLead(data.formular);
         } catch (error) {
           note.innerHTML = 'Das Formular konnte gerade nicht senden. Bitte nutzen Sie <a href="mailto:info@electroart-events.de">info@electroart-events.de</a> oder 0151 58778666.';
         } finally {
