@@ -29,6 +29,9 @@ module.exports = async (req, res) => {
     return res.status(500).json({
       error: `Fehlende SMTP-Konfiguration: ${fehlendeEnv.join(', ')}`,
       debug_gefundene_env_keys: gefundeneSmtpKeys,
+      debug_total_env_keys: Object.keys(process.env).length,
+      debug_vercel_env: process.env.VERCEL_ENV || null,
+      debug_vercel_url: process.env.VERCEL_URL || null,
     });
   }
 
