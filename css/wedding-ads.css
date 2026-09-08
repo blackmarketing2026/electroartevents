@@ -135,3 +135,27 @@
   .ads-faq-list summary { gap: 16px; font-size: .9rem; }
   .ads-faq-list details p { padding-right: 0; }
 }
+
+/* Wedding technology: concrete benefits alongside an illustrative setup. */
+.ads-tech { background: #f5f1f8; }
+.ads-tech-heading { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; margin-bottom: 34px; }
+.ads-tech-heading h2 { margin-bottom: 0; }
+.ads-tech-heading > p { color: #66556e; margin-bottom: 0; }
+.ads-tech-image { margin: 0 0 38px; }
+.ads-tech-image img { width: 100%; height: auto; aspect-ratio: 2; object-fit: cover; border-radius: 8px; }
+.ads-tech-image figcaption { color: #77657f; font-size: .7rem; line-height: 1.6; margin-top: 12px; }
+.ads-tech-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 54px; }
+.ads-tech-grid article { border-top: 1px solid #cdbbd9; padding-top: 24px; }
+.ads-tech-grid .ads-number { margin-bottom: 16px; }
+.ads-tech-grid p { color: #66556e; font-size: .94rem; max-width: 550px; margin-bottom: 0; }
+.ads-tech-cta { display: flex; justify-content: space-between; align-items: center; gap: 34px; background: #e9e0f0; padding: 28px 32px; margin-top: 36px; border-radius: 6px; }
+.ads-tech-cta p { flex: 1; color: #66556e; font-size: .88rem; margin: 0; }
+.ads-tech-cta strong { color: #352245; font-weight: 600; }
+.ads-tech-cta .button { flex: 0 1 320px; }
+.wedding-ads .ads-hero-photo img { object-position: center 47%; }
+@media (max-width: 760px) {
+  .ads-tech-heading, .ads-tech-grid { grid-template-columns: 1fr; gap: 26px; }
+  .ads-tech-image img { aspect-ratio: 1.5; }
+  .ads-tech-cta { flex-direction: column; align-items: stretch; padding: 24px; gap: 20px; }
+  .ads-tech-cta .button { flex: auto; }
+}
