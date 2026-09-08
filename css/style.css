@@ -1440,12 +1440,12 @@ address {
   --hp-line-soft: rgba(245, 247, 255, 0.12);
   --hp-primary: #007bff;
   --hp-accent: #00e5ff;
-  --hp-button: #ff7a00;
-  --hp-button-soft: #ffa64d;
+  --hp-button: #a855f7;
+  --hp-button-soft: #c084fc;
   --hp-shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
   --hp-glow-blue: 0 0 40px rgba(0, 123, 255, 0.35);
   --hp-glow-cyan: 0 0 34px rgba(0, 229, 255, 0.28);
-  --hp-glow-orange: 0 0 34px rgba(255, 122, 0, 0.4);
+  --hp-glow-purple: 0 0 34px rgba(168, 85, 247, 0.4);
   background: var(--hp-bg);
   color: var(--hp-text);
 }
@@ -1509,13 +1509,13 @@ address {
 .home-page .nav-cta {
   border-color: transparent;
   background: var(--hp-button);
-  color: #0a0400;
-  box-shadow: 0 16px 34px rgba(255, 122, 0, 0.32);
+  color: #080410;
+  box-shadow: 0 16px 34px rgba(168, 85, 247, 0.32);
 }
 
 .home-page .nav-cta:hover,
 .home-page .nav-cta:focus-visible {
-  box-shadow: var(--hp-glow-orange);
+  box-shadow: var(--hp-glow-purple);
 }
 
 .home-page h1,
@@ -1560,8 +1560,8 @@ address {
 
 .home-page .button.primary {
   background: var(--hp-button);
-  color: #0a0400;
-  box-shadow: 0 18px 44px rgba(255, 122, 0, 0.34);
+  color: #080410;
+  box-shadow: 0 18px 44px rgba(168, 85, 247, 0.34);
 }
 
 .home-page .button.secondary {
@@ -1590,7 +1590,7 @@ address {
   background:
     radial-gradient(38% 42% at 18% 22%, rgba(0, 123, 255, 0.32), transparent 68%),
     radial-gradient(34% 40% at 82% 18%, rgba(0, 229, 255, 0.22), transparent 66%),
-    radial-gradient(46% 50% at 60% 92%, rgba(255, 122, 0, 0.14), transparent 70%);
+    radial-gradient(46% 50% at 60% 92%, rgba(168, 85, 247, 0.14), transparent 70%);
   filter: blur(10px);
   animation: auroraDrift 16s ease-in-out infinite alternate;
 }
@@ -2043,7 +2043,7 @@ address {
 
 .mobile-contact-bar a:last-child {
   background: var(--hp-button);
-  color: #0a0400;
+  color: #080410;
 }
 
 /* Animations */
@@ -2061,10 +2061,10 @@ address {
 @keyframes pulseGlow {
   0%,
   100% {
-    box-shadow: 0 18px 44px rgba(255, 122, 0, 0.34);
+    box-shadow: 0 18px 44px rgba(168, 85, 247, 0.34);
   }
   50% {
-    box-shadow: 0 18px 54px rgba(255, 122, 0, 0.62), var(--hp-glow-orange);
+    box-shadow: 0 18px 54px rgba(168, 85, 247, 0.62), var(--hp-glow-purple);
   }
 }
 
