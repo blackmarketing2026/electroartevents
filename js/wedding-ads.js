@@ -126,7 +126,7 @@
       form.querySelector('.quiz-navigation').hidden = true;
       note.textContent = 'Danke für eure Anfrage! Jens meldet sich persönlich bei euch. Euer Termin ist damit noch nicht verbindlich gebucht.';
     } catch (error) {
-      note.innerHTML = 'Eure Anfrage konnte gerade nicht gesendet werden. Eure Antworten bleiben im Quiz. Bitte versucht es erneut oder ruft Jens unter <a href="tel:+4915158778666">0151 58778666</a> an.';
+      note.innerHTML = 'Eure Anfrage konnte gerade nicht gesendet werden. Eure Antworten bleiben gespeichert. Bitte versucht es erneut oder ruft Jens unter <a href="tel:+4915158778666">0151 58778666</a> an.';
     } finally {
       sending = false;
       button.disabled = false;
