@@ -202,3 +202,12 @@ body.wedding-quiz-open { overflow: hidden; }
   .wedding-ads .quiz-modal-heading h2 { font-size: 2rem; }
   .ads-quiz-invite { padding: 24px; }
 }
+
+/* Let the offer call to action wrap on smaller screens. */
+.wedding-ads .nav-cta { white-space: normal; text-align: center; line-height: 1.35; padding-top: 10px; padding-bottom: 10px; }
+.wedding-ads [data-open-wedding-quiz].button { white-space: normal; text-align: center; line-height: 1.5; }
+@media (max-width: 760px) {
+  .wedding-ads .nav-cta { max-width: 270px; }
+  .wedding-ads .mobile-contact-bar { grid-template-columns: .65fr 2fr; }
+  .wedding-ads .mobile-contact-bar a { padding: 10px; text-align: center; font-size: .76rem; line-height: 1.4; }
+}
