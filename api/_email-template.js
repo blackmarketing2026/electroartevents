@@ -12,6 +12,9 @@ const FELD_LABELS = {
   ort: 'Ort',
   datum: 'Wunschdatum',
   nachricht: 'Nachricht',
+  musikrichtungen: 'Musikrichtungen',
+  musikwuensche: 'Weitere Musikwünsche',
+  technik: 'Technik & Backup-DJ',
 };
 
 function escapeHtml(wert) {
